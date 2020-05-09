@@ -13,6 +13,9 @@ class TestClass(unittest.TestCase):
         sys.stdout.seek(0)
         out = sys.stdout.read()[:-1]
         sys.stdout, sys.stdin = stdout, stdin
+        print('------------')
+        print(out)
+        print('------------')
         self.assertEqual(out, output)
 
     def test_from_io_txt(self):
