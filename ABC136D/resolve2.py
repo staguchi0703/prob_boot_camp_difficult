@@ -30,18 +30,19 @@ def resolve():
                     dp[i+1][j+1] += dp[i][j]
 
     # print(dp)
-    res = [[0 for _ in range(len(S))] for i in range(len(bit_k))]
+    res = [[0 for _ in range(len(S))] for i in range(len(bit_k)+1)]
 
 
     for i in range(len(bit_k)):
+        res[i] = dp[i]
         if ((K >> i) & 1):
             for j in range(len(S)):
                 if S[j] == 'L':
-                    if dp[i][j] >= 1:
-                        res[i][j-1] += dp[i][j]
+                    if res[i][j] >= 1:
+                        res[i+1][j-1] += res[i][j]
                 if S[j] == 'R':
-                    if dp[i][j] >= 1:
-                        res[i][j+1] += dp[i][j]
+                    if res[i][j] >= 1:
+                        res[i+1][j+1] += res[i][j]
 
     print(*res[-1])
 
