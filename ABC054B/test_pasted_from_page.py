@@ -17,21 +17,29 @@ class TestClass(unittest.TestCase):
         sys.stdout.seek(0)
         out = sys.stdout.read()[:-1]
         sys.stdout, sys.stdin = stdout, stdin
+        print('------------')
+        print(out)
+        print('------------')
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """12"""
-        output = """1"""
+        input = """3 2
+#.#
+.#.
+#.#
+#.
+.#"""
+        output = """Yes"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """5"""
-        output = """0"""
-        self.assertIO(input, output)
-
-    def test_入力例_3(self):
-        input = """1000000000000000000"""
-        output = """124999999999999995"""
+        input = """4 1
+....
+....
+....
+....
+#"""
+        output = """No"""
         self.assertIO(input, output)
 
 

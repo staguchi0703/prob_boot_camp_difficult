@@ -201,4 +201,43 @@ print(dp[-1][-1])
 * 数学的な考察が出来れば実装は簡単
 * 差が最大（最小に）になる数列の問題は多く出るので、解の数学的な考察は覚えておいた方がよさそう。
 
-## []()
+## [ABC148E](https://atcoder.jp/contests/abc148/tasks/abc148_e)
+
+
+### 解法
+
+* 定義より奇数は10が作れないので必ず0が0個
+* 0の数は10の数が何個数列の中にあるか
+* 10の数は5の倍数の数
+  * 数列の要素は全て2の倍数のため、5があれば他のふんだんにある2との組み合わせで10が作れる
+
+### 実装
+
+* 工夫なし
+
+## [ABC054B-B - Template Matching](https://atcoder.jp/contests/abc054/tasks/abc054_b)
+
+### 解法
+
+* 全探索
+
+### 実装
+
+* 受け取った値をリストで持つのか文字で持つのかで書き方が変わる
+  * うっかりバグらせるとハマるので注意
+  * もしバグったら最初に疑った方がいいかも
+
+
+  ```python
+    A = [input() for _ in range(N)]
+    B = [input() for _ in range(M)]
+  ```
+
+  ```python
+    A = [[item for item in input()] for _ in range(N)]
+    B = [[item for item in input()] for _ in range(M)]
+  ```
+
+  * 配列の区間をしていするときに`A[i:i+n][j:j+m`としたくなるがNGなので注意
+  * `A[i:i+n]`の時点で要素は減っているが次元が減っていないので`[j:j+m]`しても同じ次元のスライスに行くだけ
+    * 書くなら右　→　`small_grid = [line[j:j+M] for line in A[i:i+M]]`

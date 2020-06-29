@@ -2,14 +2,15 @@ def resolve():
     '''
     code here
     '''
-    N = int(input())
+    N = input()
 
     res = 0
-    if int(N[-1]) % 2 == 0:
-        divisor = 1
-
-        while divisor <= N:
-            res += N
+    if int(str(N)[-1]) % 2 == 0:
+        i = 0
+        N=int(N)
+        while int(N) >= 2*5**i:
+            i += 1
+            res += N//(2*5**i)
 
     print(res)
 
