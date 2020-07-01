@@ -23,21 +23,21 @@ class TestClass(unittest.TestCase):
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """4
-0 1 1 2"""
+        input = """4 10
+6 1 2 7"""
         output = """2"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """4
-1 1 1 1"""
-        output = """0"""
+        input = """3 5
+3 3 3"""
+        output = """3"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """7
-0 3 2 1 2 2 1"""
-        output = """24"""
+        input = """10 53462
+103 35322 232 342 21099 90000 18843 9010 35221 19352"""
+        output = """36"""
         self.assertIO(input, output)
 
 

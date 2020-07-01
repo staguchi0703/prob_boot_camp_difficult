@@ -24,20 +24,20 @@ class TestClass(unittest.TestCase):
 
     def test_入力例_1(self):
         input = """4
-0 1 1 2"""
-        output = """2"""
+0224"""
+        output = """3"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """4
-1 1 1 1"""
-        output = """0"""
+        input = """6
+123123"""
+        output = """17"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """7
-0 3 2 1 2 2 1"""
-        output = """24"""
+        input = """19
+3141592653589793238"""
+        output = """329"""
         self.assertIO(input, output)
 
 
