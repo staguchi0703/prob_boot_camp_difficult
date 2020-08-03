@@ -9,6 +9,8 @@ def resolve():
     num_a = 0
     num_b = 0
     num_b_a = 0
+    # ３つの関係で解の条件分け
+    
 
     for line in Ss:
         prev = ''
