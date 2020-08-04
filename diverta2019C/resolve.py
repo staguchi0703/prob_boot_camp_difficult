@@ -9,16 +9,10 @@ def resolve():
     num_a = 0
     num_b = 0
     num_b_a = 0
-    # ３つの関係で解の条件分け
-    
 
     for line in Ss:
-        prev = ''
-        for j in range(len(line)):
-            if prev == 'A' and line[j] == 'B':
-                num_ab += 1
-            prev = line[j]
-        
+
+        num_ab += line.count('AB')
         if line[0] == 'B' and line[-1] == 'A':
             num_b_a += 1
         elif line[-1] == 'A':
@@ -26,27 +20,20 @@ def resolve():
         elif line[0] == 'B':
             num_b += 1
         
-    if num_a > num_b:
-        res = num_ab
-        res += num_b
-        delta = num_a - num_b
-        res += min(num_b_a, delta)
-        if num_b_a > delta:
-            res += num_b_a - delta
-        
-    else:
-        res = num_ab
-        res += num_a
-        delta = num_b - num_a
-        res += min(num_b_a, delta)
-        if num_b_a > delta:
-            res += num_b_a - delta
+    res = num_ab
+    if num_b_a > 0:
+        res += num_b_a -1
 
+        if num_a > 0:
+            res += 1
+            num_a -= 1
+
+        if num_b > 0:
+            res += 1
+            num_b -= 1
+
+    res += min(num_a, num_b)
     print(res)
-
-        
-
-
 
 
 if __name__ == "__main__":
