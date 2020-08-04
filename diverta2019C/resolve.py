@@ -26,27 +26,18 @@ def resolve():
         elif line[0] == 'B':
             num_b += 1
         
+    res = num_ab
+
     if num_a > num_b:
-        res = num_ab
         res += num_b
-        delta = num_a - num_b
-        res += min(num_b_a, delta)
-        if num_b_a > delta:
-            res += num_b_a - delta
-        
+        res += num_b_a
+
     else:
-        res = num_ab
         res += num_a
-        delta = num_b - num_a
-        res += min(num_b_a, delta)
-        if num_b_a > delta:
-            res += num_b_a - delta
+        res += num_b_a -1
+
 
     print(res)
-
-        
-
-
 
 
 if __name__ == "__main__":
