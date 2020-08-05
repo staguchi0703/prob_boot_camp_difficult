@@ -21,12 +21,12 @@ class TestClass(unittest.TestCase):
 
     def test_入力例_1(self):
         input = """0 0 1 2"""
-        output = """UURDDLLUUURRDRDDDLLU"""
+        output = len("""UURDDLLUUURRDRDDDLLU""")
         self.assertIO(input, output)
 
     def test_入力例_2(self):
         input = """-2 -2 1 1"""
-        output = """UURRURRDDDLLDLLULUUURRURRDDDLLDL"""
+        output = len("""UURRURRDDDLLDLLULUUURRURRDDDLLDL""")
         self.assertIO(input, output)
 
 
