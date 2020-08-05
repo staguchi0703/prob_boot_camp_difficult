@@ -13,6 +13,11 @@ def resolve():
     def paint(num,i, j, tiles):
         # bfsの考えでtiles個塗っていく
         que = collections.deque([[i,j]])
+        next_y_x = [[0, 1], [1, 0], [-1, 0], [0, -1]]
+
+        while que:
+            temp = que.popleft()
+
 
         return
 
