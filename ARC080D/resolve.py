@@ -8,16 +8,10 @@ def resolve():
     N = int(input())
     As = [int(item) for item in input().split()]
 
-    grid = [[0 for _ in range(W)] for _ in range(N)]
+    grid = [[0 for _ in range(W)] for _ in range(H)]
 
     def paint(num,i, j, tiles):
-        # bfsの考えでtiles個塗っていく
-        que = collections.deque([[i,j]])
-        next_y_x = [[0, 1], [1, 0], [-1, 0], [0, -1]]
-
-        while que:
-            temp = que.popleft()
-
+        #　iを偶奇で訳て向きを書て塗っていく　そうするとつながる
 
         return
 
@@ -26,7 +20,7 @@ def resolve():
     for i in range(W):
         for j in range(H):
             if grid[i][j] == 0:
-                paint(cnt, As[cnt])
+                paint(cnt, i, j, As[cnt])
                 cnt += 1
                 break
 
