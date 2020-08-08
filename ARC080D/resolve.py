@@ -2,33 +2,24 @@ def resolve():
     '''
     code here
     '''
-    import collections
-
     H, W = [int(item) for item in input().split()]
     N = int(input())
     As = [int(item) for item in input().split()]
 
-    grid = [[0 for _ in range(W)] for _ in range(H)]
+    line = []
+    for i, val in enumerate(As):
+        line += val * [i+1]
 
-    def paint(num,i, j, tiles):
-        #　iを偶奇で訳て向きを書て塗っていく　そうするとつながる
+    grid = [[] for _ in range(H)]
 
-        return
+    for i in range(H):
+        if i % 2 == 0:
+            grid[i] = line[i*W: W*(i+1)]
+        else:
+            grid[i] = line[i*W: W*(i+1)][::-1]
 
-
-    cnt = 0
-    for i in range(W):
-        for j in range(H):
-            if grid[i][j] == 0:
-                paint(cnt, i, j, As[cnt])
-                cnt += 1
-                break
-
-            if cnt == N:
-                break
-    
-    for line in grid:
-        print(line)
+    for temp in grid:
+        print(*temp)
 
 if __name__ == "__main__":
     resolve()
