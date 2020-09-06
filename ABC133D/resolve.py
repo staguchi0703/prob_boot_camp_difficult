@@ -1,5 +1,3 @@
-from prompt_toolkit.filters.app import is_searching
-
 
 def resolve():
     '''
@@ -23,13 +21,13 @@ def resolve():
             temp_num = 2 * (As[i-1] - res_list[i-1])
             ans_list[i] = temp_num
             if temp_num < 0:
-                return 'too large'
+                return 'too small'
             
             if i == N-1:
                 if res_list[-1] + temp_num // 2 == As[-1]:
                     return ans_list
                 else:
-                    return 'too small'
+                    return 'too large'
 
             res_list[i-1] += temp_num // 2
             res_list[i] = temp_num //2
@@ -39,9 +37,7 @@ def resolve():
     mid = (R + L)//2
     is_search = True
     while is_search:
-        print(mid)
         flag = cal(mid)
-        print(flag)
         if flag == 'too large':
             R, mid = mid, (L+mid)//2
         elif flag == 'too small':
